@@ -7,7 +7,6 @@ search_random = document.getElementById("search_random");
 function fetch_homepage(q){
 	container.innerHTML = "";
 	fetch(url+q).then(r => r.json()).then(data =>{
-		console.log(data);
 		data.data.forEach(item =>{
 			var box = document.createElement("div");
 			box.className = "box";
@@ -35,6 +34,6 @@ search_btn.addEventListener('click',()=>{
 });
 search_random.addEventListener('click',()=>{
 	fetch(url+"random").then(r=>r.json()).then(data =>{
-		console.log(data);
+		window.location.href = data.assets[0];
 	})
 });
